@@ -1,0 +1,307 @@
+@base <http://spa.openglam.ch/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix eclap: <http://www.eclap.eu/schema/eclap/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+
+<http://spa.openglam.ch/ontology/> a owl:Ontology;
+        dc:title "Extended Performing Arts Vocabulary (Swiss Theatre Collection)"@en;
+        dc:title "Erweitertes Vokabular der Darstellenden Künste (Schweizerische Theatersammlung)"@de;
+        dc:description "This vocuabulary extends the ECLAP, Schema and Dublin Core Terms vocabulary by specifying further classes and properties related to the performing arts domain that are relevant for the description of the collections of the Swiss Theatre Collection and are not specified elsewhere."@en; 
+        dc:description "Dieses Vokabular erweitert die Vokabulare von ECLAP, Schema und Dublin Core Terms, indem es für den Bereich der Darstellenden Künste zusätzliche Klassen und Properties definiert, welche für die Beschreibung der Bestände der Schweizerischen Theatersammlung relevant sindrt sind."@de;
+        owl:versionInfo "0.2";
+        dct:issued "";
+        dct:modified "";
+        dc:creator "Yevhenii Khoroshutin";
+        dc:creator "Mihrab Gizem Atilgan";
+        dc:creator "René Karl-Heinz Vielgut";
+        dc:creator "Beat Estermann";
+        dc:creator "Christian Schneeberger";
+        dc:publisher "Swiss Theatre Collection";
+        dct:rights "Copyright, Swiss Theatre Collection, available under the Creative Commons Attribution License http://creativecommons.org/licenses/by/4.0". 
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+<VideoRecording> a owl:Class;
+	    dct:description "Video recording of a performance";
+		skos:prefLabel "Video recording of a performance"@en;	    
+        skos:prefLabel "Videoaufzeichnung einer Aufführung"@de;
+        rdfs:subClassOf eclap:Video;
+        skos:definition "Video file with the recording of a performance"@en;
+        skos:definition "Videodatei mit der Aufzeichnung einer Aufführung"@de.
+      
+<ArchivalHoldings> a owl:Class;
+		dct:description "Archival holdings";
+		skos:prefLabel "Archival holdings"@en;
+        skos:prefLabel "Archivbestände"@de;
+        rdfs:subClassOf owl:Thing;
+        skos:definition "Archival holdings concerning a particular performing arts production"@en;
+        skos:definition "Archivbestände mit Bezug zu einer bestimmten Produktion der Darstellenden Künste"@de. 
+
+<Theatre> a owl:Class;
+        dct:description "Theatre group or company";
+        skos:prefLabel "Theater bzw. Veranstalter"@de;
+        rdfs:subClassOf schema:TheaterGroup;
+        skos:definition "Theater als Organisaion bzw. Instituation"@de.
+<!-- TheaterGroup or PerformingArtsTheater ? -->
+
+
+
+
+<Production> a owl:Class;
+        skos:prefLabel "Performing arts production"@en;
+        skos:prefLabel "Aufführung bzw. Produktion"@de;
+        rdfs:subClassOf owl:TheatreEvent;
+        skos:definition "Es handelt sich um eine Premiere aus den Repertorien der Schweizerischen Theatersammlung".
+
+
+<Work> a owl:Class;
+        skos:prefLabel "Werk bzw. Spieltext"@de;
+        rdfs:subClassOf owl:Creativework;
+        skos:definition "Ein Werk, auf dem eine Aufführung basiert".
+
+
+<Medium> a owl:Class;
+        skos:prefLabel "Archiviertes Medium"@de;
+        rdfs:subClassOf dct:PhysicalMedium;
+        skos:definition "Physisches Medium, das die Videoaufzeichung beinhaltet"@de.
+
+
+#################################################################
+#
+#    Reference Properties
+#
+#################################################################
+
+
+<presentation> a rdf:Property;
+        skos:prefLabel "Verantwortlicher für die Präsentation"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für die Präsentation verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<technicalLead> a rdf:Property;
+        skos:prefLabel "Technische Leitung"@de;
+        rdfs:subPropertyOf <lead>;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die die Technische Leitung übernimmt"@de;
+        rdfs:range schema:Person.
+
+
+<projektion> a rdf:Property;
+        skos:prefLabel "Verantwortlicher für die Projektion"@de;
+        rdfs:domain <Performance>;
+        skos:definition "Referenz zur Person, die für die Projektion verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<soundTechnology> a rdf:Property;
+        skos:prefLabel "Tontechnik"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für die Tontechnik verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<poster> a rdf:Property;
+        skos:prefLabel "Plakat"@de;
+        rdfs:domain <Performance>;
+        skos:definition "Referenz zur Person, die für das Plakat verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<lead> a rdf:Property;
+        skos:prefLabel "Leitung"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für die Leitung verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<camera> a rdf:Property;
+        skos:prefLabel "Kamera"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für Aufzeichung verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<dramatization> a rdf:Property;
+        skos:prefLabel "Fernsehbearbetung"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für die Fernsehbearbeitung verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<chorusLead> a rdf:Property;
+        skos:prefLabel "Chorleitung"@de;
+        rdfs:domain <Performance>;
+        skos:definition "Referenz zur Person, die für die Leitung des Chores verantwortlich ist"@de;
+        rdfs:range schema:Person.
+        
+<originBroadcastingCorporation> a rdf:Property;
+        skos:prefLabel "Herkunft Senderanstalt"@de;
+        rdfs:domain <Videorecodring>;
+        skos:definition "Hierbei handelt es sich um die Herkunftsangabe des Videomaterials wenn es sich nicht um einen Mitschnitt einer Sendeanstalt handelt"@de;
+        rdfs:range schema:Organisation.
+
+
+<nextMedium> a rdf:Property;
+        skos:prefLabel "Nachfolgemedium"@de;
+        rdfs:domain <Medium>;
+        skos:definition "Nächstes Physisches Medium, auf welchem die Fortsetzung der Aufzeichnung gespeichert ist"@de;
+        rdfs:range dct:PhysicalMedium.
+
+
+<recordingLead> a rdf:Property;
+        skos:prefLabel "Aufnahmeleitung"@de;
+        rdfs:subPropertyOf <lead>;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für die Leitung der Aufnahme verantwortlich ist"@de;
+        rdfs:range schema:Person.
+
+
+<theatreSeason> a rdf:Property;
+        skos:prefLabel "Theatersaison"@de;
+        rdfs:domain <Performance>;
+        skos:definition "Referenz zur Theatersaison, in welcher die Aufführung stattgefunden hat"@de;
+        rdfs:range <TheatreSeason>.
+
+
+<presentation> a rdf:Property;
+        skos:prefLabel "Moderation"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für die Moderation verantwortlich ist"@de;
+        rdfs:range schema:Person.
+        
+<cut> a rdf:Property;
+        skos:prefLabel "Schnitt"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die für den Schnitt verantwortlich ist"@de;
+        rdfs:range schema:Person.
+        
+<motionDirector> a rdf:Property;
+        skos:prefLabel "Bildregie"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die eine Rolle der Bildregie übernimmt"@de;
+        rdfs:range schema:Person.
+        
+<scenario> a rdf:Property;
+        skos:prefLabel "Drehbuch"@de;
+        rdfs:domain <Videorecording>;
+        skos:definition "Referenz zur Person, die das Drehbuch verfasst hat"@de;
+        rdfs:range schema:Person.
+        
+<theatreSeasons> a rdf:Property;
+        skos:prefLabel "Theatersaisons"@de;
+        rdfs:domain <Theater>;
+        skos:definition "Referenz zu Theatersaions"@de;
+        rdfs:range <TheatreSeason>.       
+        
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+<numberOfNegatives> a rdf:Property;
+        skos:prefLabel "Anzahl Negative"@de;
+        skos:definition "Es handelt es sich hier um eine numerische Angabe zur Anzahl der vorhandenen Negative von Fotos."@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<differentMaterials> a rdf:Property;
+        skos:prefLabel "Diverse Materialien?"@de;
+        skos:definition "Es handelt sich hier um die Angabe ob Presseausschnitte dazu existieren. Dies kann entsprechend bejaht oder negiert werden."@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<numberOfPerformances> a rdf:Property;
+        skos:prefLabel "Anzahl Vorstellungen"@de;
+        skos:definition "Dies gibt die Anzahl der Vorstellungen während der angegebenen Spielzeit in Form einer Zahl wieder"@de;
+        rdfs:domain <ArchivInformation>.
+        
+<numberOfPictures> a rdf:Property;
+        skos:prefLabel "Anzahl Bilder"@de;
+        skos:definition "Es handelt sich hierbei um die numerische Angabe der Anzahl der Bilder"@de;
+        rdfs:domain <Work>.
+        
+<numberOfSlides> a rdf:Property;
+        skos:prefLabel "Anzahl Dias"@de;
+        skos:definition "Es handelt es sich hier um eine numerische Angabe zur Anzahl der vorhandenen Dias"@de;
+        rdfs:domain <ArchivInformation>.
+        
+<numberOfPhotos> a rdf:Property;
+        skos:prefLabel "Anzahl Fotos"@de;
+        skos:definition "Es handelt es sich hier um eine numerische Angabe zur Anzahl der vorhandenen Abzüge der Fotos"@de;
+        rdfs:domain <ArchivInformation>.
+        
+<press> a rdf:Property;
+        skos:prefLabel "Presse?"@de;
+        skos:definition "Es handelt sich hier um die Angabe ob Presseausschnitte dazu existieren. Dies kann entsprechend bejaht oder negiert werden"@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<originalName> a rdf:Property;
+        skos:prefLabel "Originaltitel"@de;
+        skos:definition "Hier handelt es sich um den Originaltitel (in der Originalsprache) des Werkes welches Grundlage für die Aufführung ist"@de;
+        rdfs:domain <Work>.
+
+
+<numberOfStageModels> a rdf:Property;
+        skos:prefLabel "Anzahl Bühnenbildermodelle"@de;
+        skos:definition "Es handelt es sich hier um eine numerische Angabe zur Anzahl der vorhandenen Bühnenbildermodelle"@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<numberOfStageSchemes> a rdf:Property;
+        skos:prefLabel "Anzahl Bühnenbilderentwurfe"@de;
+        skos:definition "Es handelt es sich hier um eine numerische Angabe zur Anzahl der vorhandenen Bühnenbilderentwürfe"@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<signature> a rdf:Property;
+        skos:prefLabel "Signatur"@de;
+        skos:definition "Hierbei handelt es sich um die Signatur des Mediums"@de;
+        rdfs:domain <Medium>.
+
+
+<posterSignature> a rdf:Property;
+        skos:prefLabel "Plakatsignatur"@de;
+        skos:definition "Hierbei handelt es sich um die Signatur des Plakats."@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<aVMaterialSignature> a rdf:Property;
+        skos:prefLabel "AV Materialien Signatur"@de;
+        skos:definition "Hierbei handelt es sich um die Signatur des AV Materials"@de;
+        rdfs:domain <ArchivInformation>.
+
+
+<programme> a rdf:Property;
+        skos:prefLabel "Programmheft?"@de;
+        skos:definition "Es handelt sich hier um die Angabe ob ein Programmheft dazu existiert. Dies kann entsprechend bejaht oder negiert werden."@de;
+        rdfs:domain <ArchivInformation>.
+        
+<numberOfActs> a rdf:Property;
+        skos:prefLabel "Anzahl Akten"@de;
+        skos:definition "Anzahl von Akten in einem Werk"@de;
+        rdfs:domain <Work>.       
+        
+<artOfPremiere> a rdf:Property;
+        skos:prefLabel "Premierenart"@de;
+        skos:definition "Hier handelt es sich um eine Angabe zur Art der Premiere"@de;
+        rdfs:domain <Performance>.  
+
