@@ -1,0 +1,494 @@
+@base <http://voc.performing-arts.ch/spa/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix eclap: <http://www.eclap.eu/schema/eclap/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+
+<http://voc.performing-arts.ch/spa/> a owl:Ontology;
+        dc:title "Extended Performing Arts Vocabulary (Swiss Theatre Collection)"@en;
+        dc:title "Erweitertes Vokabular der Darstellenden Künste (Schweizerische Theatersammlung)"@de;
+        dc:description "This vocuabulary extends the ECLAP, Schema and Dublin Core Terms vocabulary by specifying further classes and properties related to the performing arts domain that are relevant for the description of the collections of the Swiss Theatre Collection and are not specified elsewhere."@en; 
+        dc:description "Dieses Vokabular erweitert die Vokabulare von ECLAP, Schema und Dublin Core Terms, indem es für den Bereich der Darstellenden Künste zusätzliche Klassen und Properties definiert, welche für die Beschreibung der Bestände der Schweizerischen Theatersammlung relevant sindrt sind."@de;
+        owl:versionInfo "0.2 (Draft)";
+        dct:issued "";
+        dct:modified "";
+        dc:creator "Yevhenii Khoroshutin";
+        dc:creator "Mihrab Gizem Atilgan";
+        dc:creator "René Karl-Heinz Vielgut";
+        dc:creator "Beat Estermann";
+        dc:creator "Christian Schneeberger";
+        dc:publisher "Swiss Theatre Collection";
+        dct:rights "Copyright, Swiss Theatre Collection, available under the Creative Commons Attribution License http://creativecommons.org/licenses/by/4.0";
+        owl:imports <http://schema.org/>;
+        owl:imports <http://purl.org/dc/terms/>;
+        owl:imports <http://www.eclap.eu/schema/eclap/>. 
+
+# Imported eclap, schema, dct here as they contain classes and properties that form an integral part of the Swiss Performing Arts Ontology. - Does that make sense?
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+<VideoRecording> a owl:Class;
+	    dct:description "Video recording of a performance";
+		skos:prefLabel "Video recording of a performance"@en;	    
+        skos:prefLabel "Videoaufzeichnung einer Aufführung"@de;
+        rdfs:subClassOf eclap:Video;
+        skos:definition "A video recording of a performance."@en;
+        skos:definition "Eine Videoaufzeichnung einer Aufführung."@de.
+
+
+<ArchivalHoldings> a owl:Class;
+		dct:description "Archival holdings";
+		skos:prefLabel "Archival holdings"@en;
+        skos:prefLabel "Archivbestände"@de;
+        rdfs:subClassOf owl:Thing;
+        skos:definition "Archival holdings concerning a particular performing arts production."@en;
+        skos:definition "Archivbestände mit Bezug zu einer bestimmten Produktion der Darstellenden Künste."@de. 
+
+
+<TheaterCompany> a owl:Class;
+        dct:description "Theatre group or company";
+        skos:prefLabel "Theatre company"@en;
+        skos:prefLabel "Theatergesellschaft"@de;
+        rdfs:subClassOf schema:TheaterGroup; 
+        skos:definition "A theatre group or company (a theatre as organization / institution)."@en;
+        skos:definition "Eine Theatergesellschaft (ein Theater als Organisation bzw. Institution)."@de.
+
+
+<Production> a owl:Class;
+        dct:description "Performing arts production";
+        skos:prefLabel "Performing arts production"@en;
+        skos:prefLabel "Produktion der Darstellenden Künste"@de;
+        rdfs:subClassOf owl:TheatreEvent;
+        skos:definition "A performing arts production. A series of representations of the same work usually involving the same performers and crew. Indications regarding performers and crew usually refer to the premiere. "@en;
+        skos:definition "Eine Produktion der Darstellenden Künste. Eine Serie von Aufführungen desselben Stücks in derselben Inszenierung und in der Regel mit denselben Schauspielern und Mitwirkenden. Angaben zu Schauspielern und Mitwirkenden beziehen sich in der Regel auf die Premiere."@de.
+
+
+<Work> a owl:Class;
+        dct:description "Work or theatrical text";
+		skos:prefLabel "Work or theatrical text"@en;
+		skos:prefLabel "Werk bzw. Spieltext"@de;
+        rdfs:subClassOf owl:CreativeWork;
+        skos:definition "A creative work which a performing arts performance is based on or which serves as a basis for such a creative work."@en;
+        skos:definition "Ein Werk, auf dem eine Produktion der Darstellenden Künste basiert oder das die Grundlage für ein solches Werk bildet."@de.
+
+
+<Medium> a owl:Class;
+        dct:description "Data storage medium";
+        skos:prefLabel "Data storage medium"@en;
+        skos:prefLabel "Datenträger"@de;
+        rdfs:subClassOf dct:PhysicalMedium;
+        skos:definition "A physical medium on which an audiovisual recording is stored."@en;
+        skos:definition "Ein Datenträger, auf dem eine audiovisuelle Aufzeichnung gespeichert ist."@de.
+        
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+#### Object Properties Related to a VideoRecording
+
+
+# Create super-property audiovisual professional?
+
+<audioVisualProfessional> a owl:ObjectProperty;
+		dct:description "Professional of the film and audiovisual field";
+		skos:prefLabel "Audiovisual professional"@en;
+		skos:prefLabel "Angehöriger einer Berufsgattung der audiovisuellen Medien"@de;
+		rdfs:domain <VideoRecording>;
+		skos:definition "Reference to a professional of the film or audiovisual field."@en;
+		skos:definition "Referenz auf einen Angehörigen einer Berufsgattung der Filmsparte bzw. der audiovisuellen Medien."@de;
+		rdfs:range schema:Person.
+
+
+<director> a owl:ObjectProperty;
+        dct:description "Director";
+        skos:prefLabel "Director"@en;        
+        skos:prefLabel "Regisseur/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the director of the video recording."@en;
+        skos:definition "Referenz auf den Gesamtleiter der Videoaufzeichnung."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+        
+        
+<screenwriter> a owl:ObjectProperty;
+        dct:description "Screenwriter";
+        skos:prefLabel "Screenwriter"@en;
+        skos:prefLabel "Drehbuchautor/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the screenwriter of the video recording."@en;
+        skos:definition "Referenz auf die Person, die das Drehbuch der Videoaufzeichnung verfasst hat."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<technicalDirector> a owl:ObjectProperty;
+        dct:description "Technical director";
+        skos:prefLabel "Technical director"@en;
+        skos:prefLabel "Technischer Leiter / technische Leiterin"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the technical director of the video recording."@en;
+        skos:definition "Referenz auf den technishen Leiter / die technische Leiterin der Videoaufzeichnung."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<recordingManager> a owl:ObjectProperty;
+        dct:description "Recording manager";
+        skos:prefLabel "Recording manager"@en;
+        skos:prefLabel "Aufnahmeleiter/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the recording manager of the video recording."@en;
+        skos:definition "Referenz auf den Aufnahmeleiter / die Aufnahmeleiterin der Videoaufzeichnung."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<directorOfPhotography> a owl:ObjectProperty;
+        dct:description "Director of photography"@en;
+        skos:prefLabel "Bildregisseur/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the director of photography of the video recording."@en;
+        skos:definition "Referenz auf die Person, die im Rahmen der Videoaufzeichnung für die Bildregie verantwortlich ist/war."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<cameraOperator> a owl:ObjectProperty;
+		dct:description "Camera operator";
+		skos:prefLabel "Camera operator"@en;
+        skos:prefLabel "Kameramann/-frau"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to a person who was involved in the video recording in the role of a camera operator."@en;
+        skos:definition "Referenz auf eine Person, die im Rahmen der Videoaufzeichnung für die Kameraführung zuständig ist/war."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<filmEditor> a owl:ObjectProperty;
+        dct:description "Film editor";
+        skos:prefLabel "Film editor"@en;
+        skos:prefLabel "Film Editor, Cutter/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the person responsible for the film editing in connection with the video recording."@en;
+        skos:definition "Referenz auf die Person, die im Rahmen der Videoaufzeichnung für den Schnitt bzw. die Montage verantwortlich ist/war."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<soundEngineer> a owl:ObjectProperty;
+        dct:description "Sound engineer";
+        skos:prefLabel "Sound engineer"@en;
+        skos:prefLabel "Tontechniker/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to the sound engineer of the video recording."@en;
+        skos:definition "Referenz auf den Tontechniker / die Tontechnikerin der Videoaufzeichnung."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+        
+
+<presenter> a owl:ObjectProperty;
+        dct:description "Presenter";
+        skos:prefLabel "Presenter"@en;
+        skos:prefLabel "Präsentator / Präsentatorin"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to a person involved in the video recording in the role of a presenter."@en;
+        skos:definition "Referenz auf eine Person, welche an der Videoaufzeichnung in der Rolle eines Präsentators / einer Präsentatorin beteiligt ist/war."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<moderator> a owl:ObjectProperty;
+        dct:description "Moderator";
+        skos:prefLabel "Moderator"@en;
+        skos:prefLabel "Moderator/-in"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to a person involved in the video recording in the role of a moderator."@en;
+        skos:definition "Referenz auf eine Person, welche an der Videoaufzeichnung in der Rolle eines Moderators / einer Moderatorin beteiligt ist/war."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<responsibleTVAdaptation> a owl:ObjectProperty;
+        dct:description "Responsible for the TV adaptation.";
+        skos:prefLabel "Responsible for the TV adaptation"@en;
+        skos:prefLabel "Verantwortliche/r für die Fernsehbearbeitung"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to a person responsible for the TV adaptation of the video recording."@en;
+        skos:definition "Referenz auf eine Person, die für die Fernsehbearbeitung der Videoaufzeichnung verantwortlich ist/war."@de;
+        rdfs:subPropertyOf <audioVisualProfessional>;
+        rdfs:range schema:Person.
+
+
+<broadcastingCorporation> a owl:ObjectProperty;
+        dct:description "Broadcasting corporation";
+        skos:prefLabel "Boradcasting corporation"@en;
+        skos:prefLabel "Sendeanstalt"@de;
+        rdfs:domain <VideoRecording>;
+        skos:definition "Reference to a broadcasting corporation (Indication of the provenance of audiovisual content in the case of broadcast recordings)."@de;
+        skos:definition "Referenz auf eine Sendeanstalt (Angabe der Herkunft von audiovisuellen Inhalten bei Mitschnitten einer Sendeanstalt)."@de;
+        rdfs:range schema:Organisation.
+# Does this property name make sense? Should it be renamed into "broadcastedBy" (which is not necessarily the same as producedBy)?
+# Should the form of aquisition be modelled? 
+
+
+
+#### Object Properties Related to a TheaterProduction
+
+<projectionDesigner> a owl:ObjectProperty;
+		dct:description "Projection designer";
+		skos:prefLabel "Projection designer"@en;
+        skos:prefLabel "Projektionsdesigner/-in"@de;
+        rdfs:domain <Production>;
+        skos:definition "Reference to the projection designer of the performing arts production."@en;
+        skos:definition "Referenz auf die Person, die im Rahmen der Produktion der der Darstellenden Künste als Projektionsdesigner / die Projektionsdesignerin fungiert/-e."@de;
+        rdfs:subPropertyOf eclap:performingArtsProfessional;
+        rdfs:range schema:Person.
+
+
+<choralDirector> a owl:ObjectProperty;
+        dct:description "Choral Director";
+        skos:prefLabel "Choral Director"@en;
+        skos:prefLabel "Chorleiter/-in"@de;
+        rdfs:domain <Production>;
+        skos:definition "Person directing the choir involved in the performing arts production."@en;
+        skos:definition "Person, die im Rahmen der Produktion der Darstellenden Künste für die Leitung des Chores verantwortlich ist/war."@de;
+        rdfs:subPropertyOf eclap:performingArtsProfessional;
+        rdfs:range schema:Person.
+        
+        
+<posterDesigner> a owl:ObjectProperty;
+		dct:description "Poster designer";
+		skos:prefLabel "Poster designer"@en;
+        skos:prefLabel "Plakatgestalter/-in"@de;
+        rdfs:domain <Production>;
+        skos:definition "Person responsible for the design of the poster for the performing arts production."@en;
+        skos:definition "Person, die für die Gestaltung des Plakats für die Produktion der Darstellenden Künste verantwortlich ist/war."@de;
+        rdfs:range schema:Person.
+
+
+<theaterSeason> a owl:ObjectProperty;
+        dct:description "Theatre season during which the performing arts production is/was performed";
+        skos:prefLabel "Theatre season"@en;
+        skos:prefLabel "Theatersaison, Spielzeit"@de;
+        rdfs:domain <Production>;
+        skos:definition "Reference to the theatre season during which the performing arts production is/was performed."@en;
+        skos:definition "Referenz auf die Spielzeit, während der die Produktion zur Aufführung gelangt/-e."@de;
+        rdfs:range schema:CreativeWorkSeason.
+    
+
+
+#### Object Properties Related to a Medium
+
+<nextMedium> a owl:ObjectProperty;
+        dct:description "Next medium on which the recording is continued";
+        skos:prefLabel "Next medium"@en;
+        skos:prefLabel "Nachfolgemedium"@de;
+        rdfs:domain <Medium>;
+        skos:definition "Reference to the medium on which the recording is continued."@en;
+        skos:definition "Referenz auf den Datenträger, der die Fortsetzung der Aufzeichnung enthält."@de;
+        rdfs:range dct:PhysicalMedium.
+
+
+
+#### Object Properties Related to a Theater
+
+<theaterSeasons> a owl:ObjectProperty;
+        dct:description "Theatre seasons";
+        skos:prefLabel "Theater seasons"@en;
+        skos:prefLabel "Theatersaisons"@de;
+        rdfs:domain <Theater>;
+        skos:definition "Reference to theatre seasons."@en; 
+        skos:definition "Referenz auf Theatersaions."@de;
+        rdfs:range schema:CreativeWorkSeason.       
+# Needs clarification. Why plural? Is it the same thing as theaterSeason? Can we have a property with the same name, but for a different domain, and with a different definition?
+# Alternatively: inOperationDuring
+
+
+
+#################################################################
+#
+#    Datatype properties 
+#
+#################################################################
+
+
+
+#### Datatype Properties Related to ArchivalHoldings
+# Should archival holdings be modelled in a more general manner? - Classes for the different types of archival material; with datatypes "boolean" / "number" / "accessionNumber" 
+
+
+<numberOfPhotos> a owl:DatatypeProperty;
+        dct:description "Number of photos";
+        skos:prefLabel "Number of photos"@en;
+        skos:prefLabel "Anzahl Fotos"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Number of photographs comprised in the archival holdings."@en;
+        skos:definition "Anzahl der in den Beständen vorhandenen Fotoabzüge."@de.
+
+
+<numberOfPhotoNegatives> a owl:DatatypeProperty;
+        dct:description "Number of photo negatives";
+        skos:prefLabel "Number of photo negatives"@en;
+        skos:prefLabel "Anzahl Foto-Negative"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Number of photo negatives comprised in the archival holdings."@en;
+        skos:definition "Anzahl der in den Archivbeständen vorhandenen Foto-Negative."@de.
+        
+
+<numberOfDiapositives> a owl:DatatypeProperty;
+        dct:description "Number of diapositives";
+        skos:prefLabel "Number of diapositives"@en;
+        skos:prefLabel "Anzahl Dias"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Number of diapositives comprised in the archival holdings."@en;
+        skos:definition "Anzahl der in den Beständen vorhandenen Dias."@de.
+
+
+<numberOfSetDesignModels> a owl:DatatypeProperty;
+        dct:description "Number of set design models";
+        skos:prefLabel "Number of set design models"@en;
+        skos:prefLabel "Anzahl Bühnenbildmodelle"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Number of set design models comprised in the archival holdings."@en;
+        skos:definition "Anzahl der in den Beständen vorhandenen Bühnenbildmodelle."@de.
+        
+
+<numberOfSetDesignSketches> a owl:DatatypeProperty;
+        dct:description "Number of set design sketches";
+        skos:prefLabel "Number of set design sketches"@en;
+        skos:prefLabel "Anzahl Bühnenbildentwürfe"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Number of set design sketches comprised in the archival holdings."@en;
+        skos:definition "Anzahl der in den Beständen vorhandenen Bühnenbildentwürfe."@de.
+
+
+<accessionNumberPoster> a owl:DatatypeProperty;
+        dct:description "Accession number of the poster";
+        skos:prefLabel "Accession number of the poster"@en;
+        skos:prefLabel "Plakatsignatur"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Accession number of the poster."@en;
+        skos:definition "Signatur des Plakats."@de.
+
+
+<accessionNumberAVMaterial> a owl:DatatypeProperty;
+        dct:description "Accession number of the audio-visual material";
+        skos:prefLabel "Accession number of the audio-visual material"@en;
+        skos:prefLabel "AV Materialien Signatur"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Accession number of the audio-visual material."@en;
+        skos:definition "Signatur des audiovisuellen Materials."@de.
+
+  
+<programme> a owl:DatatypeProperty;
+        dct:description "Programme";
+        skos:prefLabel "Programme"@en;
+        skos:prefLabel "Programmheft"@de;
+       	rdfs:domain <ArchivalHoldings>;
+       	skos:definition "Indication (true/false) whether the archival holdings comprise a programme booklet."@en;
+       	skos:definition "Angabe (ja/nein), ob in den Beständen ein Programmheft vorhanden ist."@de.
+# Nur gedrucktes Programmheft oder auch elektronische Version?
+
+
+<pressClippings> a owl:DatatypeProperty;
+        dct:description "Press clippings";
+        skos:prefLabel "PressClippings"@en;
+        skos:prefLabel "Presseausschnitte"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Indication (true/false) whether the archival holdings comprise press clippings."@en;
+        skos:definition "Angabe (ja/nein), ob in den Beständen Presseausschnitte vorhanden sind."@de.
+
+
+<otherMaterials> a owl:DatatypeProperty;
+        dct:description "Other materials";
+        skos:prefLabel "Other materials"@en;
+        skos:prefLabel "Weitere Materialien"@de;
+        rdfs:domain <ArchivalHoldings>;
+        skos:definition "Indication (true/false) whether the archival holdings comprise other types of materials than the ones explicitely mentioned."@en; 
+        skos:definition "Angabe (ja/nein), ob in den Beständen über die explizit erwähnten Arten hinaus noch weitere Arten von Materialien vorhanden sind."@de.
+        
+
+
+#### Datatype Properties Related to a Medium
+
+<accessionNumber> a owl:DatatypeProperty;
+        dct:description "Accession number"@en;
+        skos:prefLabel "Accession number"@en;
+        skos:prefLabel "Signatur"@de;
+        rdfs:domain <Medium>;
+        skos:definition "Accession number of the medium."@en;
+        skos:definition "Signatur des Mediums."@de.
+        
+        
+        
+#### Datatype Properties Related to a Work  
+            
+<originalName> a owl:DatatypeProperty;
+        dct:description "Original title (in the original language)";
+        skos:prefLabel "Original title"@en;
+        skos:prefLabel "Originaltitel"@de;
+        rdfs:domain <Work>;
+        skos:definition "Original title (in the original language) of the work."@en;
+        skos:definition "Originaltitel (in der Originalsprache) des Werkes."@de;
+		rdfs:subPropertyOf schema:name.
+#also in the original script? Or are translitterations allowed?
+
+              
+<numberOfActs> a owl:DatatypeProperty;
+        dct:description "Number of acts";
+        skos:prefLabel "Number of acts"@en;
+        skos:prefLabel "Anzahl Akte"@de;
+        rdfs:domain <Work>;
+        skos:definition "Number of acts in a theatre play."@en;
+        skos:definition "Anzahl der Akte in einem Theaterstück."@de.        
+
+
+<numberOfScenes> a owl:DatatypeProperty;
+        dct:description "Number of scenes";
+		skos:prefLabel "Number of scenes"@en;
+		skos:prefLabel "Anzahl Bilder"@de;
+        rdfs:domain <Work>;
+        skos:definition "Number of scenes in a theatre play (scene in the sense of a subdivision of an act, characterised by a particular location or period in time being depicted)."@en;
+        skos:definition "Anzahl der Bilder in einem Theaterstück."@de.
+        
+        
+
+#### Datatype Properties Related to a TheaterProduction
+        
+<premiereType> a owl:DatatypeProperty;
+		dct:description "Premiere Type";
+		skos:prefLabel "Premiere Type"@en;
+        skos:prefLabel "Premierenart"@de;
+        rdfs:domain <Production>;
+        skos:definition "Indication of the premiere type."@en;
+        skos:definition "Angabe zur Art der Premiere."@de.
+# Premiere Types should eventually be modelled separately.
+
+
+<numberOfPerformances> a owl:DatatypeProperty;
+        dct:description "Number of representations during a given theatre season";
+        skos:prefLabel "Number of representations"@en;
+        skos:prefLabel "Anzahl Vorstellungen"@de;
+        rdfs:domain <Production>;
+        skos:definition "Number of representations of a production during a given theatre season."@en;
+        skos:definition "Anzahl Vorstellungen einer Produktion während der angegebenen Spielzeit."@de.
+# Is this definition correct? How about productions that span across several theatre seasons? Possible confusion btw. Theatersaison and Spielzeit?
+
