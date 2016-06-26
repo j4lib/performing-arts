@@ -484,11 +484,11 @@
 
 
 <numberOfPerformances> a owl:DatatypeProperty;
-        dct:description "Number of representations during a given theatre season";
-        skos:prefLabel "Number of representations"@en;
+        dct:description "Number of performances during a given theatre season";
+        skos:prefLabel "Number of performances"@en;
         skos:prefLabel "Anzahl Vorstellungen"@de;
         rdfs:domain <PerformingArtsProduction>;
-        skos:definition "Number of representations of a production during a given theatre season."@en;
+        skos:definition "Number of performances of a production during a given theatre season."@en;
         skos:definition "Anzahl Vorstellungen einer Produktion während der angegebenen Spielzeit."@de.
 # Is this definition correct? How about productions that span across several theatre seasons? Possible confusion btw. Theatersaison and Spielzeit?
 
