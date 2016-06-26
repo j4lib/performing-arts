@@ -13,9 +13,9 @@
 
 <http://voc.performing-arts.ch/spa/> a owl:Ontology;
         dc:title "Extended Performing Arts Vocabulary (Swiss Theatre Collection)"@en;
-        dc:title "Erweitertes Vokabular der Darstellenden Künste (Schweizerische Theatersammlung)"@de;
+        dc:title "Erweitertes Vokabular der darstellenden Künste (Schweizerische Theatersammlung)"@de;
         dc:description "This vocuabulary extends the ECLAP, Schema and Dublin Core Terms vocabulary by specifying further classes and properties related to the performing arts domain that are relevant for the description of the collections of the Swiss Theatre Collection and are not specified elsewhere."@en; 
-        dc:description "Dieses Vokabular erweitert die Vokabulare von ECLAP, Schema und Dublin Core Terms, indem es für den Bereich der Darstellenden Künste zusätzliche Klassen und Properties definiert, welche für die Beschreibung der Bestände der Schweizerischen Theatersammlung relevant sindrt sind."@de;
+        dc:description "Dieses Vokabular erweitert die Vokabulare von ECLAP, Schema und Dublin Core Terms, indem es für den Bereich der darstellenden Künste zusätzliche Klassen und Properties definiert, welche für die Beschreibung der Bestände der Schweizerischen Theatersammlung relevant sindrt sind."@de;
         owl:versionInfo "0.2 (Draft)";
         dct:issued "";
         dct:modified "";
@@ -56,7 +56,7 @@
         skos:prefLabel "Archivbestände"@de;
         rdfs:subClassOf owl:Thing;
         skos:definition "Archival holdings concerning a particular performing arts production."@en;
-        skos:definition "Archivbestände mit Bezug zu einer bestimmten Produktion der Darstellenden Künste."@de. 
+        skos:definition "Archivbestände mit Bezug zu einer bestimmten Produktion der darstellenden Künste."@de. 
 
 
 <TheaterCompany> a owl:Class;
@@ -74,7 +74,7 @@
         skos:prefLabel "Produktion der Darstellenden Künste"@de;
         rdfs:subClassOf schema:TheatreEvent;
         skos:definition "A performing arts production. A series of representations of the same work usually involving the same performers and crew. Indications regarding performers and crew usually refer to the premiere. "@en;
-        skos:definition "Eine Produktion der Darstellenden Künste. Eine Serie von Aufführungen desselben Stücks in derselben Inszenierung und in der Regel mit denselben Schauspielern und Mitwirkenden. Angaben zu Schauspielern und Mitwirkenden beziehen sich in der Regel auf die Premiere."@de.
+        skos:definition "Eine Produktion der darstellenden Künste. Eine Serie von Aufführungen desselben Stücks in derselben Inszenierung und in der Regel mit denselben Schauspielern und Mitwirkenden. Angaben zu Schauspielern und Mitwirkenden beziehen sich in der Regel auf die Premiere."@de.
 
 
 <Work> a owl:Class;
@@ -83,7 +83,7 @@
 		skos:prefLabel "Werk bzw. Spieltext"@de;
         rdfs:subClassOf schema:CreativeWork;
         skos:definition "A creative work which a performing arts performance is based on or which serves as a basis for such a creative work."@en;
-        skos:definition "Ein Werk, auf dem eine Produktion der Darstellenden Künste basiert oder das die Grundlage für ein solches Werk bildet."@de.
+        skos:definition "Ein Werk, auf dem eine Produktion der darstellenden Künste basiert oder das die Grundlage für ein solches Werk bildet."@de.
 
 
 <Medium> a owl:Class;
@@ -250,7 +250,7 @@
 
 
 
-#### Object Properties Related to a TheaterProduction
+#### Object Properties Related to a PerformingArtsProduction
 
 <projectionDesigner> a owl:ObjectProperty;
 		dct:description "Projection designer";
@@ -258,7 +258,7 @@
         skos:prefLabel "Projektionsdesigner/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the projection designer of the performing arts production."@en;
-        skos:definition "Verweis auf die Person, die im Rahmen der Produktion der der Darstellenden Künste als Projektionsdesigner / die Projektionsdesignerin fungiert/-e."@de;
+        skos:definition "Verweis auf die Person, die im Rahmen der Produktion der darstellenden Künste als Projektionsdesigner / die Projektionsdesignerin fungiert/-e."@de;
         rdfs:subPropertyOf eclap:performingArtsProfessional;
         rdfs:range schema:Person.
 
@@ -269,7 +269,7 @@
         skos:prefLabel "Chorleiter/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the person directing the choir involved in the performing arts production."@en;
-        skos:definition "Verweis auf die Person, die im Rahmen der Produktion der Darstellenden Künste für die Leitung des Chores verantwortlich ist/war."@de;
+        skos:definition "Verweis auf die Person, die im Rahmen der Produktion der darstellenden Künste für die Leitung des Chores verantwortlich ist/war."@de;
         rdfs:subPropertyOf eclap:performingArtsProfessional;
         rdfs:range schema:Person.
         
@@ -280,7 +280,7 @@
         skos:prefLabel "Plakatgestalter/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the person responsible for the design of the poster for the performing arts production."@en;
-        skos:definition "Verweis auf die Person, die für die Gestaltung des Plakats für die Produktion der Darstellenden Künste verantwortlich ist/war."@de;
+        skos:definition "Verweis auf die Person, die für die Gestaltung des Plakats für die Produktion der darstellenden Künste verantwortlich ist/war."@de;
         rdfs:range schema:Person.
 
 
@@ -471,7 +471,7 @@
         
         
 
-#### Datatype Properties Related to a TheaterProduction
+#### Datatype Properties Related to a PerformingArtsProduction
         
 <premiereType> a owl:DatatypeProperty;
 		dct:description "Premiere Type";
