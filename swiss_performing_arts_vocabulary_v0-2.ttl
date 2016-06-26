@@ -68,11 +68,11 @@
         skos:definition "Eine Theatergesellschaft (ein Theater als Organisation bzw. Institution)."@de.
 
 
-<Production> a owl:Class;
+<PerformingArtsProduction> a owl:Class;
         dct:description "Performing arts production";
         skos:prefLabel "Performing arts production"@en;
         skos:prefLabel "Produktion der Darstellenden Künste"@de;
-        rdfs:subClassOf owl:TheatreEvent;
+        rdfs:subClassOf schema:TheatreEvent;
         skos:definition "A performing arts production. A series of representations of the same work usually involving the same performers and crew. Indications regarding performers and crew usually refer to the premiere. "@en;
         skos:definition "Eine Produktion der Darstellenden Künste. Eine Serie von Aufführungen desselben Stücks in derselben Inszenierung und in der Regel mit denselben Schauspielern und Mitwirkenden. Angaben zu Schauspielern und Mitwirkenden beziehen sich in der Regel auf die Premiere."@de.
 
@@ -81,7 +81,7 @@
         dct:description "Work or theatrical text";
 		skos:prefLabel "Work or theatrical text"@en;
 		skos:prefLabel "Werk bzw. Spieltext"@de;
-        rdfs:subClassOf owl:CreativeWork;
+        rdfs:subClassOf schema:CreativeWork;
         skos:definition "A creative work which a performing arts performance is based on or which serves as a basis for such a creative work."@en;
         skos:definition "Ein Werk, auf dem eine Produktion der Darstellenden Künste basiert oder das die Grundlage für ein solches Werk bildet."@de.
 
@@ -256,7 +256,7 @@
 		dct:description "Projection designer";
 		skos:prefLabel "Projection designer"@en;
         skos:prefLabel "Projektionsdesigner/-in"@de;
-        rdfs:domain <Production>;
+        rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the projection designer of the performing arts production."@en;
         skos:definition "Referenz auf die Person, die im Rahmen der Produktion der der Darstellenden Künste als Projektionsdesigner / die Projektionsdesignerin fungiert/-e."@de;
         rdfs:subPropertyOf eclap:performingArtsProfessional;
@@ -267,7 +267,7 @@
         dct:description "Choral Director";
         skos:prefLabel "Choral Director"@en;
         skos:prefLabel "Chorleiter/-in"@de;
-        rdfs:domain <Production>;
+        rdfs:domain <PerformingArtsProduction>;
         skos:definition "Person directing the choir involved in the performing arts production."@en;
         skos:definition "Person, die im Rahmen der Produktion der Darstellenden Künste für die Leitung des Chores verantwortlich ist/war."@de;
         rdfs:subPropertyOf eclap:performingArtsProfessional;
@@ -278,7 +278,7 @@
 		dct:description "Poster designer";
 		skos:prefLabel "Poster designer"@en;
         skos:prefLabel "Plakatgestalter/-in"@de;
-        rdfs:domain <Production>;
+        rdfs:domain <PerformingArtsProduction>;
         skos:definition "Person responsible for the design of the poster for the performing arts production."@en;
         skos:definition "Person, die für die Gestaltung des Plakats für die Produktion der Darstellenden Künste verantwortlich ist/war."@de;
         rdfs:range schema:Person.
@@ -288,7 +288,7 @@
         dct:description "Theatre season during which the performing arts production is/was performed";
         skos:prefLabel "Theatre season"@en;
         skos:prefLabel "Theatersaison, Spielzeit"@de;
-        rdfs:domain <Production>;
+        rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the theatre season during which the performing arts production is/was performed."@en;
         skos:definition "Referenz auf die Spielzeit, während der die Produktion zur Aufführung gelangt/-e."@de;
         rdfs:range schema:CreativeWorkSeason.
@@ -477,7 +477,7 @@
 		dct:description "Premiere Type";
 		skos:prefLabel "Premiere Type"@en;
         skos:prefLabel "Premierenart"@de;
-        rdfs:domain <Production>;
+        rdfs:domain <PerformingArtsProduction>;
         skos:definition "Indication of the premiere type."@en;
         skos:definition "Angabe zur Art der Premiere."@de.
 # Premiere Types should eventually be modelled separately.
@@ -487,7 +487,7 @@
         dct:description "Number of representations during a given theatre season";
         skos:prefLabel "Number of representations"@en;
         skos:prefLabel "Anzahl Vorstellungen"@de;
-        rdfs:domain <Production>;
+        rdfs:domain <PerformingArtsProduction>;
         skos:definition "Number of representations of a production during a given theatre season."@en;
         skos:definition "Anzahl Vorstellungen einer Produktion während der angegebenen Spielzeit."@de.
 # Is this definition correct? How about productions that span across several theatre seasons? Possible confusion btw. Theatersaison and Spielzeit?
