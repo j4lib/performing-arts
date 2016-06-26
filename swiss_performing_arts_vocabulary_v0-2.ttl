@@ -113,7 +113,7 @@
 		skos:prefLabel "Angehöriger einer Berufsgattung der audiovisuellen Medien"@de;
 		rdfs:domain <VideoRecording>;
 		skos:definition "Reference to a professional of the film or audiovisual field."@en;
-		skos:definition "Referenz auf einen Angehörigen einer Berufsgattung der Filmsparte bzw. der audiovisuellen Medien."@de;
+		skos:definition "Verweis auf einen Angehörigen einer Berufsgattung der Filmsparte bzw. der audiovisuellen Medien."@de;
 		rdfs:range schema:Person.
 
 
@@ -123,7 +123,7 @@
         skos:prefLabel "Regisseur/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the director of the video recording."@en;
-        skos:definition "Referenz auf den Gesamtleiter der Videoaufzeichnung."@de;
+        skos:definition "Verweis auf den Gesamtleiter der Videoaufzeichnung."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
         
@@ -134,7 +134,7 @@
         skos:prefLabel "Drehbuchautor/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the screenwriter of the video recording."@en;
-        skos:definition "Referenz auf die Person, die das Drehbuch der Videoaufzeichnung verfasst hat."@de;
+        skos:definition "Verweis auf die Person, die das Drehbuch der Videoaufzeichnung verfasst hat."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -145,7 +145,7 @@
         skos:prefLabel "Technischer Leiter / technische Leiterin"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the technical director of the video recording."@en;
-        skos:definition "Referenz auf den technishen Leiter / die technische Leiterin der Videoaufzeichnung."@de;
+        skos:definition "Verweis auf den technishen Leiter / die technische Leiterin der Videoaufzeichnung."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -156,7 +156,7 @@
         skos:prefLabel "Aufnahmeleiter/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the recording manager of the video recording."@en;
-        skos:definition "Referenz auf den Aufnahmeleiter / die Aufnahmeleiterin der Videoaufzeichnung."@de;
+        skos:definition "Verweis auf den Aufnahmeleiter / die Aufnahmeleiterin der Videoaufzeichnung."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -166,7 +166,7 @@
         skos:prefLabel "Bildregisseur/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the director of photography of the video recording."@en;
-        skos:definition "Referenz auf die Person, die im Rahmen der Videoaufzeichnung für die Bildregie verantwortlich ist/war."@de;
+        skos:definition "Verweis auf die Person, die im Rahmen der Videoaufzeichnung für die Bildregie verantwortlich ist/war."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -177,7 +177,7 @@
         skos:prefLabel "Kameramann/-frau"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to a person who was involved in the video recording in the role of a camera operator."@en;
-        skos:definition "Referenz auf eine Person, die im Rahmen der Videoaufzeichnung für die Kameraführung zuständig ist/war."@de;
+        skos:definition "Verweis auf eine Person, die im Rahmen der Videoaufzeichnung für die Kameraführung zuständig ist/war."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -188,7 +188,7 @@
         skos:prefLabel "Film Editor, Cutter/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the person responsible for the film editing in connection with the video recording."@en;
-        skos:definition "Referenz auf die Person, die im Rahmen der Videoaufzeichnung für den Schnitt bzw. die Montage verantwortlich ist/war."@de;
+        skos:definition "Verweis auf die Person, die im Rahmen der Videoaufzeichnung für den Schnitt bzw. die Montage verantwortlich ist/war."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -199,7 +199,7 @@
         skos:prefLabel "Tontechniker/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to the sound engineer of the video recording."@en;
-        skos:definition "Referenz auf den Tontechniker / die Tontechnikerin der Videoaufzeichnung."@de;
+        skos:definition "Verweis auf den Tontechniker / die Tontechnikerin der Videoaufzeichnung."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
         
@@ -210,7 +210,7 @@
         skos:prefLabel "Präsentator / Präsentatorin"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to a person involved in the video recording in the role of a presenter."@en;
-        skos:definition "Referenz auf eine Person, welche an der Videoaufzeichnung in der Rolle eines Präsentators / einer Präsentatorin beteiligt ist/war."@de;
+        skos:definition "Verweis auf eine Person, welche an der Videoaufzeichnung in der Rolle eines Präsentators / einer Präsentatorin beteiligt ist/war."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -221,7 +221,7 @@
         skos:prefLabel "Moderator/-in"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to a person involved in the video recording in the role of a moderator."@en;
-        skos:definition "Referenz auf eine Person, welche an der Videoaufzeichnung in der Rolle eines Moderators / einer Moderatorin beteiligt ist/war."@de;
+        skos:definition "Verweis auf eine Person, welche an der Videoaufzeichnung in der Rolle eines Moderators / einer Moderatorin beteiligt ist/war."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -232,7 +232,7 @@
         skos:prefLabel "Verantwortliche/r für die Fernsehbearbeitung"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to a person responsible for the TV adaptation of the video recording."@en;
-        skos:definition "Referenz auf eine Person, die für die Fernsehbearbeitung der Videoaufzeichnung verantwortlich ist/war."@de;
+        skos:definition "Verweis auf eine Person, die für die Fernsehbearbeitung der Videoaufzeichnung verantwortlich ist/war."@de;
         rdfs:subPropertyOf <audioVisualProfessional>;
         rdfs:range schema:Person.
 
@@ -243,7 +243,7 @@
         skos:prefLabel "Sendeanstalt"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to a broadcasting corporation (Indication of the provenance of audiovisual content in the case of broadcast recordings)."@de;
-        skos:definition "Referenz auf eine Sendeanstalt (Angabe der Herkunft von audiovisuellen Inhalten bei Mitschnitten einer Sendeanstalt)."@de;
+        skos:definition "Verweis auf eine Sendeanstalt (Angabe der Herkunft von audiovisuellen Inhalten bei Mitschnitten einer Sendeanstalt)."@de;
         rdfs:range schema:Organisation.
 # Does this property name make sense? Should it be renamed into "broadcastedBy" (which is not necessarily the same as producedBy)?
 # Should the form of aquisition be modelled? 
@@ -258,7 +258,7 @@
         skos:prefLabel "Projektionsdesigner/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the projection designer of the performing arts production."@en;
-        skos:definition "Referenz auf die Person, die im Rahmen der Produktion der der Darstellenden Künste als Projektionsdesigner / die Projektionsdesignerin fungiert/-e."@de;
+        skos:definition "Verweis auf die Person, die im Rahmen der Produktion der der Darstellenden Künste als Projektionsdesigner / die Projektionsdesignerin fungiert/-e."@de;
         rdfs:subPropertyOf eclap:performingArtsProfessional;
         rdfs:range schema:Person.
 
@@ -268,8 +268,8 @@
         skos:prefLabel "Choral Director"@en;
         skos:prefLabel "Chorleiter/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
-        skos:definition "Person directing the choir involved in the performing arts production."@en;
-        skos:definition "Person, die im Rahmen der Produktion der Darstellenden Künste für die Leitung des Chores verantwortlich ist/war."@de;
+        skos:definition "Reference to the person directing the choir involved in the performing arts production."@en;
+        skos:definition "Verweis auf die Person, die im Rahmen der Produktion der Darstellenden Künste für die Leitung des Chores verantwortlich ist/war."@de;
         rdfs:subPropertyOf eclap:performingArtsProfessional;
         rdfs:range schema:Person.
         
@@ -279,8 +279,8 @@
 		skos:prefLabel "Poster designer"@en;
         skos:prefLabel "Plakatgestalter/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
-        skos:definition "Person responsible for the design of the poster for the performing arts production."@en;
-        skos:definition "Person, die für die Gestaltung des Plakats für die Produktion der Darstellenden Künste verantwortlich ist/war."@de;
+        skos:definition "Reference to the person responsible for the design of the poster for the performing arts production."@en;
+        skos:definition "Verweis auf die Person, die für die Gestaltung des Plakats für die Produktion der Darstellenden Künste verantwortlich ist/war."@de;
         rdfs:range schema:Person.
 
 
@@ -290,7 +290,7 @@
         skos:prefLabel "Theatersaison, Spielzeit"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the theatre season during which the performing arts production is/was performed."@en;
-        skos:definition "Referenz auf die Spielzeit, während der die Produktion zur Aufführung gelangt/-e."@de;
+        skos:definition "Verweis auf die Spielzeit, während der die Produktion zur Aufführung gelangt/-e."@de;
         rdfs:range schema:CreativeWorkSeason.
     
 
@@ -303,7 +303,7 @@
         skos:prefLabel "Nachfolgemedium"@de;
         rdfs:domain <Medium>;
         skos:definition "Reference to the medium on which the recording is continued."@en;
-        skos:definition "Referenz auf den Datenträger, der die Fortsetzung der Aufzeichnung enthält."@de;
+        skos:definition "Verweis auf den Datenträger, der die Fortsetzung der Aufzeichnung enthält."@de;
         rdfs:range dct:PhysicalMedium.
 
 
@@ -316,7 +316,7 @@
         skos:prefLabel "Theatersaisons"@de;
         rdfs:domain <Theater>;
         skos:definition "Reference to theatre seasons."@en; 
-        skos:definition "Referenz auf Theatersaions."@de;
+        skos:definition "Verweis auf Theatersaions."@de;
         rdfs:range schema:CreativeWorkSeason.       
 # Needs clarification. Why plural? Is it the same thing as theaterSeason? Can we have a property with the same name, but for a different domain, and with a different definition?
 # Alternatively: inOperationDuring
