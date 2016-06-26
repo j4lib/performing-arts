@@ -263,6 +263,17 @@
         rdfs:range schema:Person.
 
 
+<videoDesigner> a owl:ObjectProperty;
+		dct:description "Video designer";
+		skos:prefLabel "Video designer"@en;
+        skos:prefLabel "Videodesigner/-in"@de;
+        rdfs:domain <PerformingArtsProduction>;
+        skos:definition "Reference to a video designer involved in the performing arts production."@en;
+        skos:definition "Verweis auf eine Person, die im Rahmen der Produktion der darstellenden Künste für das Videodesign zuständig war."@de;
+        rdfs:subPropertyOf eclap:performingArtsProfessional;
+        rdfs:range schema:Person.
+
+
 <choralDirector> a owl:ObjectProperty;
         dct:description "Choral Director";
         skos:prefLabel "Choral Director"@en;
