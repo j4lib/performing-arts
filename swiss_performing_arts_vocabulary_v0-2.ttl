@@ -42,8 +42,8 @@
 
 
 <VideoRecording> a owl:Class;
-	    dct:description "Video recording of a performance";
-		skos:prefLabel "Video recording of a performance"@en;	    
+	dct:description "Video recording of a performance";
+	skos:prefLabel "Video recording of a performance"@en;	    
         skos:prefLabel "Videoaufzeichnung einer Aufführung"@de;
         rdfs:subClassOf eclap:Video;
         skos:definition "A video recording of a performance."@en;
@@ -51,8 +51,8 @@
 
 
 <ArchivalHoldings> a owl:Class;
-		dct:description "Archival holdings";
-		skos:prefLabel "Archival holdings"@en;
+	dct:description "Archival holdings";
+	skos:prefLabel "Archival holdings"@en;
         skos:prefLabel "Archivbestände"@de;
         rdfs:subClassOf owl:Thing;
         skos:definition "Archival holdings concerning a particular performing arts production."@en;
