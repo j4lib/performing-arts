@@ -499,7 +499,7 @@
         skos:prefLabel "Number of performances"@en;
         skos:prefLabel "Anzahl Vorstellungen"@de;
         rdfs:domain <PerformingArtsProduction>;
-        skos:definition "Number of performances of a production during a given theatre season."@en;
-        skos:definition "Anzahl Vorstellungen einer Produktion während der angegebenen Spielzeit."@de.
+        skos:definition "Number of performances of a production during its entire lifetime."@en;
+        skos:definition "Anzahl Vorstellungen einer Produktion während der gesamten Spieldauer."@de.
 # Is this definition correct? How about productions that span across several theatre seasons? Possible confusion btw. Theatersaison and Spielzeit?
 
