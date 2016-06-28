@@ -1,4 +1,4 @@
-@base <http://voc.performing-arts.ch/spa/> .
+@base <http://spa.openglam.ch/spa/voc/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -11,7 +11,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 
-<http://voc.performing-arts.ch/spa/> a owl:Ontology;
+<http://spa.openglam.ch/spa/voc> a owl:Ontology;
         dc:title "Extended Performing Arts Vocabulary (Swiss Theatre Collection)"@en;
         dc:title "Erweitertes Vokabular der darstellenden Künste (Schweizerische Theatersammlung)"@de;
         dc:description "This vocuabulary extends the ECLAP, Schema and Dublin Core Terms vocabulary by specifying further classes and properties related to the performing arts domain that are relevant for the description of the collections of the Swiss Theatre Collection and are not specified elsewhere."@en; 
@@ -79,8 +79,8 @@
 
 <Work> a owl:Class;
         dct:description "Work or theatrical text";
-		skos:prefLabel "Work or theatrical text"@en;
-		skos:prefLabel "Werk bzw. Spieltext"@de;
+	skos:prefLabel "Work or theatrical text"@en;
+	skos:prefLabel "Werk bzw. Spieltext"@de;
         rdfs:subClassOf schema:CreativeWork;
         skos:definition "A creative work which a performing arts performance is based on or which serves as a basis for such a creative work."@en;
         skos:definition "Ein Werk, auf dem eine Produktion der darstellenden Künste basiert oder das die Grundlage für ein solches Werk bildet."@de.
@@ -108,13 +108,13 @@
 # Create super-property audiovisual professional?
 
 <audioVisualProfessional> a owl:ObjectProperty;
-		dct:description "Professional of the film and audiovisual field";
-		skos:prefLabel "Audiovisual professional"@en;
-		skos:prefLabel "Angehöriger einer Berufsgattung der audiovisuellen Medien"@de;
-		rdfs:domain <VideoRecording>;
-		skos:definition "Reference to a professional of the film or audiovisual field."@en;
-		skos:definition "Verweis auf einen Angehörigen einer Berufsgattung der Filmsparte bzw. der audiovisuellen Medien."@de;
-		rdfs:range schema:Person.
+	dct:description "Professional of the film and audiovisual field";
+	skos:prefLabel "Audiovisual professional"@en;
+	skos:prefLabel "Angehöriger einer Berufsgattung der audiovisuellen Medien"@de;
+	rdfs:domain <VideoRecording>;
+	skos:definition "Reference to a professional of the film or audiovisual field."@en;
+	skos:definition "Verweis auf einen Angehörigen einer Berufsgattung der Filmsparte bzw. der audiovisuellen Medien."@de;
+	rdfs:range schema:Person.
 
 
 <director> a owl:ObjectProperty;
@@ -172,8 +172,8 @@
 
 
 <cameraOperator> a owl:ObjectProperty;
-		dct:description "Camera operator";
-		skos:prefLabel "Camera operator"@en;
+	dct:description "Camera operator";
+	skos:prefLabel "Camera operator"@en;
         skos:prefLabel "Kameramann/-frau"@de;
         rdfs:domain <VideoRecording>;
         skos:definition "Reference to a person who was involved in the video recording in the role of a camera operator."@en;
@@ -253,8 +253,8 @@
 #### Object Properties Related to a PerformingArtsProduction
 
 <projectionDesigner> a owl:ObjectProperty;
-		dct:description "Projection designer";
-		skos:prefLabel "Projection designer"@en;
+	dct:description "Projection designer";
+	skos:prefLabel "Projection designer"@en;
         skos:prefLabel "Projektionsdesigner/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the projection designer of the performing arts production."@en;
@@ -264,8 +264,8 @@
 
 
 <videoDesigner> a owl:ObjectProperty;
-		dct:description "Video designer";
-		skos:prefLabel "Video designer"@en;
+	dct:description "Video designer";
+	skos:prefLabel "Video designer"@en;
         skos:prefLabel "Videodesigner/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to a video designer involved in the performing arts production."@en;
@@ -286,8 +286,8 @@
         
         
 <posterDesigner> a owl:ObjectProperty;
-		dct:description "Poster designer";
-		skos:prefLabel "Poster designer"@en;
+	dct:description "Poster designer";
+	skos:prefLabel "Poster designer"@en;
         skos:prefLabel "Plakatgestalter/-in"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Reference to the person responsible for the design of the poster for the performing arts production."@en;
@@ -459,7 +459,7 @@
         rdfs:domain <Work>;
         skos:definition "Original title (in the original language) of the work."@en;
         skos:definition "Originaltitel (in der Originalsprache) des Werkes."@de;
-		rdfs:subPropertyOf schema:name.
+	rdfs:subPropertyOf schema:name.
 #also in the original script? Or are translitterations allowed?
 
               
@@ -474,8 +474,8 @@
 
 <numberOfScenes> a owl:DatatypeProperty;
         dct:description "Number of scenes";
-		skos:prefLabel "Number of scenes"@en;
-		skos:prefLabel "Anzahl Bilder"@de;
+	skos:prefLabel "Number of scenes"@en;
+	skos:prefLabel "Anzahl Bilder"@de;
         rdfs:domain <Work>;
         skos:definition "Number of scenes in a theatre play (scene in the sense of a subdivision of an act, characterised by a particular location or period in time being depicted)."@en;
         skos:definition "Anzahl der Bilder in einem Theaterstück."@de.
@@ -485,8 +485,8 @@
 #### Datatype Properties Related to a PerformingArtsProduction
         
 <premiereType> a owl:DatatypeProperty;
-		dct:description "Premiere Type";
-		skos:prefLabel "Premiere Type"@en;
+	dct:description "Premiere Type";
+	skos:prefLabel "Premiere Type"@en;
         skos:prefLabel "Premierenart"@de;
         rdfs:domain <PerformingArtsProduction>;
         skos:definition "Indication of the premiere type."@en;
