@@ -90,7 +90,7 @@ function addQuotes($item) {
   if (preg_match("/(^[0-9]{4}-[0-9]{2}-[0-9]{2}$)/",$item)) {
     $item = "+" . $item . "T00:00:00Z/11";
   }
-  if (!preg_match("/(^Q[0-9]+)|(^\+[0-9]+.+Z\/11$)/",$item)) {
+  if (!preg_match("/(^Q[0-9]+)|(^\+[0-9]{4}-[0-9]{2}-[0-9]{2}.+)/",$item)) {
     $item = "\"" . $item . "\"";
   }
   return $item;
@@ -111,6 +111,7 @@ function addQuick($res,$row,$property,$items) {
 function addQuickQualifier($res,$row,$property,$item,$qualifier,$item2) {
     if ($item) {
       $item = addQuotes($item);
+      $item2 = addQuotes($item2);
       $res[$row["Stück"].$row["Datum"]] =
         addIfNotExists($res[$row["Stück"].$row["Datum"]],
                      "LAST\t" . $property . "\t" . $item . "\t" .
