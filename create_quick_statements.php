@@ -10,11 +10,13 @@ unset($csv[0]);
 foreach($csv as $row){
   if (sizeof($row) != 1) {
     $row = array_combine($csv_head, $row);
-    if (!array_key_exists($row["Stück"].$row["Datum"],$res)) {
+    $id = $row["Stück"].$row["Datum"];
+    if ($id != "Der Hauptmann von Köpenick1947-10-18") {
+    if (!array_key_exists($id,$res)) {
       if ($row["Typ"] == 'Q40249767') { // if Gastspiel
-        $res[$row["Stück"].$row["Datum"]][] = "CREATE\nLAST\tP31\tQ43100730\n";
+        $res[$id][] = "CREATE\nLAST\tP31\tQ43100730\n";
       } else {
-        $res[$row["Stück"].$row["Datum"]][] = "CREATE\nLAST\tP31\tQ7777570\n";
+        $res[$id][] = "CREATE\nLAST\tP31\tQ7777570\n";
 
       }
     }
@@ -67,6 +69,7 @@ foreach($csv as $row){
     if ($row["Person"] && $row["Rolle"]) {
         $res = addQuickQualifier($res,$row,"P161",$row["Person"],"P4633",$row["Rolle"]);
     }
+  }
   }
 }
 
