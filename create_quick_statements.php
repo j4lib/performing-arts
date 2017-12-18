@@ -47,14 +47,19 @@ foreach($csv as $row){
     if ($row["Choreographie"]) {
       $res = addQuick($res,$row,"P1809",[$row["Choreographie"]]);
     }
-    /*if ($row["Ortsvermerk"]) {
+    if ($row["Ortsvermerk"]) {
+      if ($row["Typ"] == 'Q40249767') {
+        $prop = "P4647";
+      } else {
+        $prop = "P276";
+      }
       if ($row["OrtQualifier1"] && $row["OrtQualifier2"]) {
-        $res = addQuickQualifier($res,$row,"P?",$row["Ortsvermerk"],$row["OrtQualifier1"],
+        $res = addQuickQualifier($res,$row,$prop,$row["Ortsvermerk"],$row["OrtQualifier1"],
                $row["OrtQualifier2"]);
       } else {
-        $res = addQuick($res,$row,"P?",[$row["Ortsvermerk"]]);
+        $res = addQuick($res,$row,$prop,[$row["Ortsvermerk"]]);
       }
-    }*/
+    }
     if ($row["Person"] && $row["Rolle"]) {
         $res = addQuickQualifier($res,$row,"P161",$row["Person"],"P4633",$row["Rolle"]);
     }
