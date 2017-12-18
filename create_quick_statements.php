@@ -15,6 +15,7 @@ foreach($csv as $row){
         $res[$row["Stück"].$row["Datum"]][] = "CREATE\nLAST\tP31\tQ43100730\n";
       } else {
         $res[$row["Stück"].$row["Datum"]][] = "CREATE\nLAST\tP31\tQ7777570\n";
+
       }
     }
     if ($row["Spielzeit"]) {
@@ -86,8 +87,8 @@ function addIfNotExists($resAtKey,$propWithItem) {
 }
 
 function addQuotes($item) {
-  if (preg_match("/(^[0-9]+.+Z$)/",$item)) {
-    $item = "+" . $item . "/11";
+  if (preg_match("/(^[0-9]{4}-[0-9]{2}-[0-9]{2}$)/",$item)) {
+    $item = "+" . $item . "T00:00:00Z/11";
   }
   if (!preg_match("/(^Q[0-9]+)|(^\+[0-9]+.+Z\/11$)/",$item)) {
     $item = "\"" . $item . "\"";
@@ -109,8 +110,9 @@ function addQuick($res,$row,$property,$items) {
 
 function addQuickQualifier($res,$row,$property,$item,$qualifier,$item2) {
     if ($item) {
-    $res[$row["Stück"].$row["Datum"]] =
-      addIfNotExists($res[$row["Stück"].$row["Datum"]],
+      $item = addQuotes($item);
+      $res[$row["Stück"].$row["Datum"]] =
+        addIfNotExists($res[$row["Stück"].$row["Datum"]],
                      "LAST\t" . $property . "\t" . $item . "\t" .
                      $qualifier . "\t". $item2 . "\n");
   }
