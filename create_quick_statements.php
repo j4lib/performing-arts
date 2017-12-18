@@ -37,6 +37,9 @@ foreach($csv as $row){
     }
     if ($row["Musik1"] || $row["Musik2"]) {
       $res = addQuick($res,$row,"P86",[$row["Musik1"],$row["Musik2"]]);
+      $res = addQuick($res,$row,"P136",["Q39894018"]);
+    } else {
+      $res = addQuick($res,$row,"P136",["Q39892385"]);
     }
     if ($row["Bühnenbild1"] || $row["Bühnenbild2"]) {
       $res = addQuick($res,$row,"P4608",[$row["Bühnenbild1"],$row["Bühnenbild2"]]);
