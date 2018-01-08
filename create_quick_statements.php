@@ -69,8 +69,7 @@ foreach($csv as $row){
         $prop = "P276";
       }
       if ($row["OrtQualifier1"] && $row["OrtQualifier2"]) {
-        $res = addQuick($res,$row,[[$prop,$row["Ortsvermerk"]],[$prop,$row["OrtQualifier1"]],
-               [$prop,$row["OrtQualifier2"]]],$source);
+        $res = addQuick($res,$row,[[$prop,$row["Ortsvermerk"]],[$row["OrtQualifier1"],$row["OrtQualifier2"]]],$source);
       } else {
         $res = addQuick($res,$row,[[$prop,$row["Ortsvermerk"]]],$source);
       }
