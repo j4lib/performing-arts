@@ -2,6 +2,8 @@
 
 $csvIn = $argv[1];
 $res = [];
+// Repertoire Schauspielhaus Zürich 1938-1968
+$source = "Q39907533";
 
 $csv = array_map('str_getcsv', file($csvIn));
 $csv_head = $csv[0];
@@ -21,37 +23,44 @@ foreach($csv as $row){
       }
     }
     if ($row["Spielzeit"]) {
-      $res = addQuick($res,$row,"P2348",[$row["Spielzeit"]]);
+      $res = addQuick($res,$row,[["P2348",$row["Spielzeit"]]],$source);
     }
     if ($row["Datum"]) {
-      $res = addQuick($res,$row,"P1191",[$row["Datum"]]);
+      $res = addQuick($res,$row,[["P1191",$row["Datum"]]],$source);
     }
     if ($row["Stück"]) {
-      $res = addQuick($res,$row,"Lde",[$row["Stück"]]);
+      $res = addQuick($res,$row,[["Lde",$row["Stück"]]],"");
+      $res = addQuick($res,$row,[["P1705",$row["Stück"]]],$source);
+      if ($row["Kommentar"]) {
+        $res = addQuick($res,$row,[["Dde","Theaterproduktion des Schauspielhauses Zürich in der Spielzeit 1938-1939. " . $row["Kommentar"]]],"");
+      } else {
+        $res = addQuick($res,$row,[["Dde","Theaterproduktion des Schauspielhauses Zürich in der Spielzeit 1938-1939"]],"");
+      }
+      $res = addQuick($res,$row,[["Den","theatrical production of Schauspielhaus Zurich during the season 1938-1939"]],"");
     }
     if ($row["Vorlage"]) {
-      $res = addQuick($res,$row,"P144",[$row["Vorlage"]]);
+      $res = addQuick($res,$row,[["P144",$row["Vorlage"]]],$source);
     }
     /*if ($row["Autor1"] || $row["Autor2"] || $row["Autor3"]) {
       $res = addQuick($res,$row,"P",[$row["Autor1"],$row["Autor2"],$row["Autor3"]]);
     }*/
     if ($row["Regie1"] || $row["Regie2"]) {
-      $res = addQuick($res,$row,"P57",[$row["Regie1"],$row["Regie2"]]);
+      $res = addQuick($res,$row,[["P57",$row["Regie1"]],["P57",$row["Regie2"]]],$source);
     }
     if ($row["Musik1"] || $row["Musik2"]) {
-      $res = addQuick($res,$row,"P86",[$row["Musik1"],$row["Musik2"]]);
-      $res = addQuick($res,$row,"P136",["Q39894018"]);
+      $res = addQuick($res,$row,[["P86",$row["Musik1"]],["P86",$row["Musik2"]]],$source);
+      $res = addQuick($res,$row,[["P136","Q39894018"]],"");
     } else {
-      $res = addQuick($res,$row,"P136",["Q39892385"]);
+      $res = addQuick($res,$row,[["P136","Q39892385"]],"");
     }
     if ($row["Bühnenbild1"] || $row["Bühnenbild2"]) {
-      $res = addQuick($res,$row,"P4608",[$row["Bühnenbild1"],$row["Bühnenbild2"]]);
+      $res = addQuick($res,$row,[["P4608",$row["Bühnenbild1"]],["P4608",$row["Bühnenbild2"]]],$source);
     }
     if ($row["Kostüme1"] || $row["Kostüme2"]) {
-      $res = addQuick($res,$row,"P2515",[$row["Kostüme1"],$row["Kostüme2"]]);
+      $res = addQuick($res,$row,[["P2515",$row["Kostüme1"]],["P2515",$row["Kostüme2"]]],$source);
     }
     if ($row["Choreographie"]) {
-      $res = addQuick($res,$row,"P1809",[$row["Choreographie"]]);
+      $res = addQuick($res,$row,[["P1809",$row["Choreographie"]]],$source);
     }
     if ($row["Ortsvermerk"]) {
       if ($row["Typ"] == 'Q40249767') {
@@ -60,14 +69,17 @@ foreach($csv as $row){
         $prop = "P276";
       }
       if ($row["OrtQualifier1"] && $row["OrtQualifier2"]) {
-        $res = addQuickQualifier($res,$row,$prop,$row["Ortsvermerk"],$row["OrtQualifier1"],
-               $row["OrtQualifier2"]);
+        $res = addQuick($res,$row,[[$prop,$row["Ortsvermerk"]],[$prop,$row["OrtQualifier1"]],
+               [$prop,$row["OrtQualifier2"]]],$source);
       } else {
-        $res = addQuick($res,$row,$prop,[$row["Ortsvermerk"]]);
+        $res = addQuick($res,$row,[[$prop,$row["Ortsvermerk"]]],$source);
       }
     }
+    if ($row["Typ"]) {
+      $res = addQuick($res,$row,[["P4634",$row["Typ"]]],$source);
+    }
     if ($row["Person"] && $row["Rolle"]) {
-        $res = addQuickQualifier($res,$row,"P161",$row["Person"],"P4633",$row["Rolle"]);
+        $res = addQuick($res,$row,[["P161",$row["Person"]],["P4633",$row["Rolle"]]],$source);
     }
   }
   }
@@ -99,28 +111,25 @@ function addQuotes($item) {
   return $item;
 }
 
-function addQuick($res,$row,$property,$items) {
-  foreach ($items as $item) {
+function addQuick($res,$row,$properties,$source) {
+  $propStr = "";
+  foreach ($properties as list($prop,$item)) {
     if ($item) {
-    $item = addQuotes($item);
-    $res[$row["Stück"].$row["Datum"]] =
-      addIfNotExists($res[$row["Stück"].$row["Datum"]],
-                     "LAST\t" . $property . "\t" . $item . "\n");
+      $item = addQuotes($item);
+      if ($prop == "P1705") {
+        $propStr = $propStr . "\t" . $prop . "\tde:" . $item ;
+      } else {
+        $propStr = $propStr . "\t" . $prop . "\t" . $item ;
+      }
+    }
   }
-}
+  if ($source) {
+    $source = "\tS248\t" . $source;
+  }
+  $res[$row["Stück"].$row["Datum"]] =
+    addIfNotExists($res[$row["Stück"].$row["Datum"]],"LAST" . $propStr . $source . "\n");
   return $res;
 }
 
-function addQuickQualifier($res,$row,$property,$item,$qualifier,$item2) {
-    if ($item) {
-      $item = addQuotes($item);
-      $item2 = addQuotes($item2);
-      $res[$row["Stück"].$row["Datum"]] =
-        addIfNotExists($res[$row["Stück"].$row["Datum"]],
-                     "LAST\t" . $property . "\t" . $item . "\t" .
-                     $qualifier . "\t". $item2 . "\n");
-  }
-  return $res;
-}
 
 ?>
