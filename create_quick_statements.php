@@ -34,11 +34,11 @@ foreach($csv as $row){
       $res = addQuick($res,$row,[[["Lde",$row["Stück"]]]],"");
       $res = addQuick($res,$row,[[["P1705",$row["Stück"]]]],$source);
       if ($row["Kommentar"]) {
-        $res = addQuick($res,$row,[[["Dde","Theaterproduktion des Schauspielhauses Zürich in der Spielzeit 1938-1939. " . $row["Kommentar"]]]],"");
+        $res = addQuick($res,$row,[[["Dde","Theaterproduktion des Schauspielhauses Zürich in der Spielzeit " . $row["SpielzeitJahre"] . ". " . $row["Kommentar"]]]],"");
       } else {
-        $res = addQuick($res,$row,[[["Dde","Theaterproduktion des Schauspielhauses Zürich in der Spielzeit 1938-1939"]]],"");
+        $res = addQuick($res,$row,[[["Dde","Theaterproduktion des Schauspielhauses Zürich in der Spielzeit " . $row["SpielzeitJahre"]]]],"");
       }
-      $res = addQuick($res,$row,[[["Den","theatrical production of Schauspielhaus Zurich during the season 1938-1939"]]],"");
+      $res = addQuick($res,$row,[[["Den","theatrical production of Schauspielhaus Zurich during the season " . $row["SpielzeitJahre"]]]],"");
     }
     if ($row["Vorlage"]) {
       $res = addQuick($res,$row,[[["P144",$row["Vorlage"]]]],$source);
