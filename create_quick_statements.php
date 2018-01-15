@@ -40,6 +40,9 @@ foreach($csv as $row){
       }
       $res = addQuick($res,$row,[[["Den","theatrical production of Schauspielhaus Zurich during the season 1938-1939"]]],"");
     }
+    if ($row["Vorlage"]) {
+      $res = addQuick($res,$row,[[["P144",$row["Vorlage"]]]],$source);
+    }
     if ($row["SpracheQ"]) {
       $res = addQuick($res,$row,[[["P407",$row["SpracheQ"]]]],"");
     }
@@ -139,8 +142,10 @@ function addQuick($res,$row,$properties,$source) {
         }
       }
     }
-    $res[$row["Stück"].$row["Datum"]] =
-      addIfNotExists($res[$row["Stück"].$row["Datum"]],"LAST" . $propStr . $source . "\n");
+    if ($propStr) {
+      $res[$row["Stück"].$row["Datum"]] =
+        addIfNotExists($res[$row["Stück"].$row["Datum"]],"LAST" . $propStr . $source . "\n");
+      }
     }
     return $res;
 }
